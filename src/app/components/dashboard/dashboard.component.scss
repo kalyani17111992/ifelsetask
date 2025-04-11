@@ -1,0 +1,198 @@
+::ng-deep .mat-card-subtitle{
+margin-left: 3px;
+// padding-left: 3px;
+}
+#chart-gauge, #chart-column {
+    display: block;
+    min-width: 150px;
+    max-width: 400px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  table {
+    width: 100%;
+  }
+  mat-progress-bar {
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  mat-progress-bar.mat-progress-bar-fill {
+    background-color: #3f51b5;
+    border-radius: 10px;
+  }
+  .chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  mat-chip {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 16px;
+  }
+/* dashboard.component.css */
+
+.table-container {
+    position: relative;
+  }
+  
+  .loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+  }
+  
+  mat-progress-spinner {
+    margin-bottom: 16px;
+  }
+  ::ng-deep.mat-button {
+    background-color: #3f51b5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  ::ng-deep.mat-dialog-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  ::ng-deep.mat-dialog-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  ::ng-deep.mat-dialog-content {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  ::ng-deep.mat-dialog-actions {
+    margin-top: 20px;
+    text-align: right;
+  }
+  ::ng-deep.mat-button {
+    background-color: #3f51b5!important;
+    color: #fff!important;
+    padding: 10px 20px!important;
+    border: none!important;
+    border-radius: 5px!important;
+    cursor: pointer!important;
+  }
+  
+  ::ng-deep.mat-dialog-container {
+    background-color: #fff!important;
+    padding: 20px!important;
+    border-radius: 10px!important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)!important;
+  }
+  
+  ::ng-deep.mat-dialog-title {
+    font-size: 18px!important;
+    font-weight: bold!important;
+    margin-bottom: 10px!important;
+  }
+  
+  ::ng-deep.mat-dialog-content {
+    font-size: 14px!important;
+    margin-bottom: 20px!important;
+  }
+  
+  ::ng-deep.mat-dialog-actions {
+    margin-top: 20px!important;
+    text-align: right!important;
+  }
+  #chart-column {
+    display: block;
+    width: 100%;             /* Full width */
+    max-width: 100%;         /* Remove max width limit */
+    height: 400px;           /* Taller chart */
+    margin: 0 auto;
+  }
+  .dashboard-wrapper {
+    h5 {
+      font-weight: 600;
+    }
+  
+    .progress-circle-wrapper {
+      display: flex;
+      justify-content: center;
+  
+      .progress-circle {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(#7f56d9 80%, #f0f0f0 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #7f56d9;
+  
+        .value {
+          font-weight: bold;
+        }
+  
+        .sub {
+          position: absolute;
+          bottom: 10px;
+          font-size: 0.8rem;
+          color: green;
+        }
+      }
+    }
+  
+    mat-card {
+      border-radius: 12px;
+      margin-top: 2px;
+    }
+  }
+  .vendor-breakdown {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+  }
+  
+  .vendor-icon {
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .vendor-icon mat-icon {
+    width: 24px;
+    height: 24px;
+    color: #1a1a1a;
+  }
+  
+  .vendor-text {
+    margin-left: 16px;
+  }
+  
+  .vendor-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .vendor-subtitle {
+    margin: 0;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  

@@ -1,0 +1,123 @@
+<div class="container mt-5">
+    <div class="dashboard-wrapper container mt-5">
+        <h5 class="mb-4">Welcome back, Olivia</h5>
+
+        <div class="row">
+            <!-- Vendor Breakdown Chart Card -->
+            <div class="col-md-8">
+                <mat-card appearance="outlined">
+                    <div class="vendor-breakdown mat-elevation-z0">
+                        <div class="vendor-icon">
+                            <mat-icon>inventory_2</mat-icon>
+                        </div>
+                        <div class="vendor-text">
+                            <h6 class="vendor-title">Vendor breakdown</h6>
+                            <p class="vendor-subtitle">Keep track of vendors and their security ratings.</p>
+                        </div>
+                    </div>
+
+                    <mat-card-content>
+                        <div id="chart-column" style="height: 250px;"></div>
+                        <div class="text-end mt-3">
+                            <button mat-button color="primary">View full report</button>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <!-- Vendors Monitored Card -->
+            <div class="col-md-4">
+                <mat-card appearance="outlined" class="text-center p-3">
+                    <div class="d-flex justify-content-between">
+                        <strong>Vendors monitored</strong>
+                        <mat-icon>more_vert</mat-icon>
+                    </div>
+                    <div class="progress-circle-wrapper my-3">
+                        <div class="progress-circle">
+                            <span class="value">240</span>
+                            <div class="sub">+10%</div>
+                        </div>
+                    </div>
+                    <p>You’ve almost reached your limit</p>
+                    <small class="text-muted">
+                        You have used 80% of your available spots.<br />
+                        Upgrade plan to monitor more vendors.
+                    </small>
+                    <br />
+                    <button mat-flat-button color="primary" class="mt-2">Upgrade plan</button>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="loading-indicator" *ngIf="isLoading">
+            <mat-progress-spinner diameter="24"></mat-progress-spinner>
+            Loading data...
+        </div>
+        <mat-card>
+            <div class="row">
+                <div class="col-md-3 mt-2">
+                    <button mat-raised-button (click)="addRow()">Add Record</button>
+
+                </div>
+            </div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.name.first_name }} {{ element.name.last_name }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.status }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.role }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="license_used">
+                    <th mat-header-cell *matHeaderCellDef> License Use </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-progress-bar [value]="element.license_used" [bufferValue]="100"></mat-progress-bar>
+                        {{ element.license_used }}%
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="teams">
+                    <th mat-header-cell *matHeaderCellDef> Teams </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="chip-list">
+                            <mat-chip *ngFor="let team of element.teams"
+                                [style.background-color]="team.background_color" [style.color]="team.text_color">
+                                {{ team.value }}
+                            </mat-chip>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="primary" (click)="updateRow(element)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="deleteRow(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements"></mat-paginator>
+        </mat-card>
+    </div>
+</div>
